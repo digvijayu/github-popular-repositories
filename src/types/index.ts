@@ -61,3 +61,5 @@ export type GithubApiResponse = {
   incomplete_results: false;
   items: Repository[];
 };
+
+export type Tabs = "popular" | "starred";

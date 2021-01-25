@@ -1,4 +1,7 @@
+import styled from "styled-components";
+
 import { Repository } from "./../../types";
+import { MEDIA_QUERY, STANDARD_WIDTH } from "./../../constants/styles";
 import RepositoryCard from "./../RepositoryCard";
 
 type Props = {
@@ -7,12 +10,20 @@ type Props = {
 
 const RepositoryList = ({ repositories }: Props) => {
   return (
-    <div>
+    <ListContainer>
       {repositories.map((repository) => (
-        <RepositoryCard repository={repository} />
+        <RepositoryCard repository={repository} key={repository.id} />
       ))}
-    </div>
+    </ListContainer>
   );
 };
+
+const ListContainer = styled.div`
+  margin: auto;
+  width: ${STANDARD_WIDTH.MEDIUM}px;
+  ${MEDIA_QUERY.MOBILE} {
+    width: 90%;
+  }
+`;
 
 export default RepositoryList;
